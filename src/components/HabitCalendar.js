@@ -6,25 +6,13 @@ import { addDays, subDays, format, startOfYear, endOfYear, parseISO, differenceI
 import { ca } from 'date-fns/locale';
 
 const HabitCalendar = ({ habits }) => {
+  // Initialize all hooks at the beginning of the component
   const [selectedHabit, setSelectedHabit] = useState(habits.length > 0 ? habits[0].id : null);
   const [viewRange, setViewRange] = useState('year'); // 'year', 'month', 'quarter'
   const [calendarData, setCalendarData] = useState([]);
   const [streakStats, setStreakStats] = useState({ current: 0, longest: 0, totalDays: 0 });
-
-  // If no habits, show a message
-  if (habits.length === 0) {
-    return (
-      <div className="calendar-container">
-        <div className="card">
-          <h2 className="calendar-header">Calendari de Progrés</h2>
-          <p className="no-habits-message">No hi ha hàbits per mostrar. Afegeix-ne alguns per veure el teu progrés!</p>
-        </div>
-      </div>
-    );
-  }
-  
-  // Get data for the selected habit
-  const currentHabit = habits.find(h => h.id === selectedHabit) || habits[0];
+  const [startDate, setStartDate] = useState(startOfYear(new Date()));
+  const [endDate, setEndDate] = useState(new Date());
   
   // Calculate date range based on view preference
   const calculateDateRange = () => {
@@ -33,29 +21,28 @@ const HabitCalendar = ({ habits }) => {
     switch(viewRange) {
       case 'month':
         return { 
-          startDate: subDays(today, 30), 
-          endDate: today 
+          start: subDays(today, 30), 
+          end: today 
         };
       case 'quarter':
         return { 
-          startDate: subDays(today, 90), 
-          endDate: today 
+          start: subDays(today, 90), 
+          end: today 
         };
       case 'year':
       default:
         return { 
-          startDate: startOfYear(today), 
-          endDate: today 
+          start: startOfYear(today), 
+          end: today 
         };
     }
   };
   
-  const { startDate, endDate } = calculateDateRange();
-  
-  // Calculate streak information
-  const calculateStreakInfo = (habit) => {
+  // Update streak information
+  const updateStreakInfo = (habit) => {
     if (!habit || !habit.completedDays || habit.completedDays.length === 0) {
-      return { current: 0, longest: 0, totalDays: 0 };
+      setStreakStats({ current: 0, longest: 0, totalDays: 0 });
+      return;
     }
 
     const today = new Date().toISOString().split('T')[0];
@@ -65,7 +52,6 @@ const HabitCalendar = ({ habits }) => {
     // Find streaks
     let currentStreak = 0;
     let longestStreak = 0;
-    let currentStreakStart = null;
 
     // Check if today is completed
     const isTodayCompleted = sortedDays.includes(today);
@@ -124,15 +110,17 @@ const HabitCalendar = ({ habits }) => {
       }
     }
 
-    return { current: currentStreak, longest: longestStreak, totalDays };
+    setStreakStats({ current: currentStreak, longest: longestStreak, totalDays });
   };
 
-  // Prepare data for the heatmap
-  const getHeatmapData = (habit) => {
-    if (!habit) return [];
+  // Update calendar data
+  const updateCalendarData = (habit) => {
+    if (!habit) {
+      setCalendarData([]);
+      return;
+    }
     
     const completedDays = habit.completedDays || [];
-    const { startDate, endDate } = calculateDateRange();
     
     // Filter days that are within our view range
     const filteredDays = completedDays.filter(day => {
@@ -140,10 +128,37 @@ const HabitCalendar = ({ habits }) => {
       return isWithinInterval(date, { start: startDate, end: endDate });
     });
     
-    return filteredDays.map(day => ({
+    const data = filteredDays.map(day => ({
       date: day,
       count: 1
     }));
+    
+    setCalendarData(data);
+  };
+  
+  // Update date range when view changes
+  useEffect(() => {
+    const range = calculateDateRange();
+    setStartDate(range.start);
+    setEndDate(range.end);
+  }, [viewRange]);
+
+  // Update calendar data and streak information when habit, date range, or habits array changes
+  useEffect(() => {
+    if (habits.length > 0) {
+      const habit = habits.find(h => h.id === selectedHabit) || habits[0];
+      updateCalendarData(habit);
+      updateStreakInfo(habit);
+    } else {
+      setCalendarData([]);
+      setStreakStats({ current: 0, longest: 0, totalDays: 0 });
+    }
+  }, [selectedHabit, startDate, endDate, habits]);
+  
+  // Format date for tooltip
+  const formatDate = (date) => {
+    if (!date) return '';
+    return format(new Date(date), 'dd MMMM yyyy', { locale: ca });
   };
   
   // Get color based on value
@@ -152,23 +167,20 @@ const HabitCalendar = ({ habits }) => {
     return 'color-scale-4';
   };
   
-  // Update calendar data and streak information when habit or date range changes
-  useEffect(() => {
-    if (habits.length > 0) {
-      const habit = habits.find(h => h.id === selectedHabit) || habits[0];
-      setCalendarData(getHeatmapData(habit));
-      setStreakStats(calculateStreakInfo(habit));
-    } else {
-      setCalendarData([]);
-      setStreakStats({ current: 0, longest: 0, totalDays: 0 });
-    }
-  }, [selectedHabit, viewRange, habits]);
+  // Render empty state if no habits
+  if (habits.length === 0) {
+    return (
+      <div className="calendar-container">
+        <div className="card">
+          <h2 className="calendar-header">Calendari de Progrés</h2>
+          <p className="no-habits-message">No hi ha hàbits per mostrar. Afegeix-ne alguns per veure el teu progrés!</p>
+        </div>
+      </div>
+    );
+  }
   
-  // Format date for tooltip
-  const formatDate = (date) => {
-    if (!date) return '';
-    return format(new Date(date), 'dd MMMM yyyy', { locale: ca });
-  };
+  // Get current habit
+  const currentHabit = habits.find(h => h.id === selectedHabit) || habits[0];
 
   return (
     <div className="calendar-container">
