@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Habits-HUB/static/css/main.a75a325d.css",
+    "main.js": "/Habits-HUB/static/js/main.7d8afb41.js",
+    "index.html": "/Habits-HUB/index.html",
+    "main.a75a325d.css.map": "/Habits-HUB/static/css/main.a75a325d.css.map",
+    "main.7d8afb41.js.map": "/Habits-HUB/static/js/main.7d8afb41.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a75a325d.css",
+    "static/js/main.7d8afb41.js"
+  ]
+}
