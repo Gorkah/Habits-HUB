@@ -1,3 +1,37 @@
+# 🧠 Proyecto Web de Seguimiento de Hábitos tipo GitHub Contributions
+
+## Prompt utilizado para guiar a la IA
+##Primer PROMPT
+
+**"CON CLAUDE SONNET 3.7 (THINKING): Créame una web que cumpla el documento de requisitos. Y me gustaría que tuviera como un historial de los hábitos estilo GitHub contributions."**
+
+---
+
+## 🎯 Objetivo
+
+Crear una aplicación web que permita registrar y visualizar hábitos diarios de forma atractiva y funcional, con especial énfasis en:
+
+- Visualización tipo "contribution graph" (como el de GitHub).
+- Cumplimiento estricto del documento de requisitos funcionales y no funcionales.
+- Interfaz limpia, responsiva y fácil de usar.
+
+
+## 📸 Vista previa
+
+### 🌱 Página principal con resumen diario
+
+![Página principal](./prompt1.png)
+
+---
+
+### 📊 Visualización de hábitos tipo GitHub
+
+![Contribution Grid](./prompt1(2).png)
+
+---
+
+
+
 # Habits HUB
 
 Una aplicació web per al seguiment d'hàbits personals, creada amb React.
