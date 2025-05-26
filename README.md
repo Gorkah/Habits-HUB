@@ -1,11 +1,13 @@
+# Readme publicado en [https://github.com/Gorkah/Habits-HUB](https://github.com/Gorkah/Habits-HUB)
+
+
 # 🧠 Proyecto Web de Seguimiento de Hábitos tipo GitHub Contributions
 
-## Prompt utilizado para guiar a la IA
-## Primer PROMPT
+## Prompts utilizado para guiar a la IA:
+---
+## Primer PROMPT:
 
 **"CON CLAUDE SONNET 3.7 (THINKING): Créame una web que cumpla el documento de requisitos. Y me gustaría que tuviera como un historial de los hábitos estilo GitHub contributions."**
-
----
 
 ## 🎯 Objetivo
 
@@ -30,7 +32,62 @@ Crear una aplicación web que permita registrar y visualizar hábitos diarios de
 
 ---
 
+## SEGUNDO PROMPT:
 
+**"CON CLAUDE SONNET 3.7 (THINKING): 
+El funcionamiento es correcto. Tambien podrias mejorar el diseño visualmente haciendolo mas responsive y tambien añadir los dias que llevas en racha."**
+
+## 🎯 Objetivo
+
+El primer prompt dió una app que cumplia todos los requisitos pero aun era mejorable. El resultado final al ejecutar tras los cambios del segundo prompt surgió el siguiente error:
+![Página principal](./prompt2.png)
+
+---
+
+## TERCER PROMPT:
+
+**"CON CLAUDE SONNET 3.7 (THINKING): 
+
+Me ha aparecido este error al compilar: Compiled with problems:
+×
+ERROR
+[eslint] 
+src\components\HabitCalendar.js
+  Line 153:3:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error."**
+
+## 🎯 Objetivo
+
+El segundo prompt arrojó un error, que impedia su ejecución asi que arreglamos el error:
+
+## 📸 Vista previa
+
+### 🌱 Página principal con resumen diario
+
+![Página principal](./prompt3.png)
+
+---
+
+### 📊 Visualización de hábitos tipo GitHub
+
+![Contribution Grid](./prompt3(2).png)
+
+---
+
+## 🤖 Reflexió sobre l’ús de la IA
+
+L’ús de la intel·ligència artificial, en aquest projecte, ha estat una eina molt útil durant tot el procés de desenvolupament. S’ha fet servir per:
+
+- Generar fragments de codi basats en les necessitats especificades en les històries d’usuari.
+- Resoldre dubtes puntuals de sintaxi i bones pràctiques.
+- Proposar estructures lògiques per a la interfície i el comportament del sistema.
+
+Aquest suport ha permès treballar de manera més eficient i dedicar més temps a l’anàlisi funcional que no pas a problemes tècnics concrets.
+
+Tot i això, també s’ha après que cal revisar totes les aportacions generades per la IA. No sempre són totalment precises o adaptades al context específic, i poden requerir ajustaments per assegurar-ne la qualitat i adequació.
+
+---
 
 # Habits HUB
 
