@@ -1,3 +1,6 @@
+# Readme publicado en [https://github.com/Gorkah/Habits-HUB](https://github.com/Gorkah/Habits-HUB)
+
+
 # 🧠 Proyecto Web de Seguimiento de Hábitos tipo GitHub Contributions
 
 ## Prompts utilizado para guiar a la IA:
