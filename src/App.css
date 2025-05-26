@@ -1,0 +1,172 @@
+.app {
+  min-height: 100vh;
+}
+
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.view-toggle .btn {
+  background-color: #f0f0f0;
+  color: var(--text-color);
+}
+
+.view-toggle .btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Header styles */
+.header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.header p {
+  margin-top: 5px;
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+/* Habit Form Styles */
+.habit-form {
+  margin-bottom: 30px;
+}
+
+.habit-form-title {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Habit List Styles */
+.habits-container {
+  margin-top: 30px;
+}
+
+.habit-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.habit-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.habit-info {
+  flex: 1;
+}
+
+.habit-name {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.habit-description {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.habit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.habit-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: 0;
+  color: white;
+}
+
+.habit-actions .action-complete {
+  background-color: var(--success-color);
+}
+
+.habit-actions .action-edit {
+  background-color: var(--warning-color);
+}
+
+.habit-actions .action-delete {
+  background-color: var(--danger-color);
+}
+
+/* Calendar styles */
+.calendar-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.habit-calendar {
+  overflow-x: auto;
+}
+
+.react-calendar-heatmap .color-scale-1 { fill: #ebedf0; }
+.react-calendar-heatmap .color-scale-2 { fill: #c6e48b; }
+.react-calendar-heatmap .color-scale-3 { fill: #7bc96f; }
+.react-calendar-heatmap .color-scale-4 { fill: #239a3b; }
+.react-calendar-heatmap .color-scale-5 { fill: #196127; }
+
+.color-scale-legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 5px;
+  align-items: center;
+}
+
+.color-box {
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  font-size: 0.8rem;
+}
+
+.legend-label {
+  margin-left: 5px;
+  color: var(--text-light);
+}
+
+.no-habits-message {
+  text-align: center;
+  padding: 50px 0;
+  color: var(--text-light);
+}
