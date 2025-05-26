@@ -1,7 +1,7 @@
 # 🧠 Proyecto Web de Seguimiento de Hábitos tipo GitHub Contributions
 
 ## Prompt utilizado para guiar a la IA
-##Primer PROMPT
+## Primer PROMPT
 
 **"CON CLAUDE SONNET 3.7 (THINKING): Créame una web que cumpla el documento de requisitos. Y me gustaría que tuviera como un historial de los hábitos estilo GitHub contributions."**
 
