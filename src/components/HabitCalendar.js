@@ -10,7 +10,7 @@ const HabitCalendar = ({ habits }) => {
   const [viewRange, setViewRange] = useState('year'); // 'year', 'month', 'quarter'
   const [calendarData, setCalendarData] = useState([]);
   const [streakStats, setStreakStats] = useState({ current: 0, longest: 0, totalDays: 0 });
-  
+
   // If no habits, show a message
   if (habits.length === 0) {
     return (
@@ -22,7 +22,7 @@ const HabitCalendar = ({ habits }) => {
       </div>
     );
   }
-
+  
   // Get data for the selected habit
   const currentHabit = habits.find(h => h.id === selectedHabit) || habits[0];
   
@@ -128,8 +128,11 @@ const HabitCalendar = ({ habits }) => {
   };
 
   // Prepare data for the heatmap
-  const getHeatmapData = () => {
-    const completedDays = currentHabit.completedDays || [];
+  const getHeatmapData = (habit) => {
+    if (!habit) return [];
+    
+    const completedDays = habit.completedDays || [];
+    const { startDate, endDate } = calculateDateRange();
     
     // Filter days that are within our view range
     const filteredDays = completedDays.filter(day => {
@@ -151,9 +154,13 @@ const HabitCalendar = ({ habits }) => {
   
   // Update calendar data and streak information when habit or date range changes
   useEffect(() => {
-    if (currentHabit) {
-      setCalendarData(getHeatmapData());
-      setStreakStats(calculateStreakInfo(currentHabit));
+    if (habits.length > 0) {
+      const habit = habits.find(h => h.id === selectedHabit) || habits[0];
+      setCalendarData(getHeatmapData(habit));
+      setStreakStats(calculateStreakInfo(habit));
+    } else {
+      setCalendarData([]);
+      setStreakStats({ current: 0, longest: 0, totalDays: 0 });
     }
   }, [selectedHabit, viewRange, habits]);
   
