@@ -75,17 +75,16 @@ El segundo prompt arrojó un error, que impedia su ejecución asi que arreglamos
 
 ---
 
-## 🤖 Reflexió sobre l’ús de la IA
+## 🤖 Reflexió sobre l’ús de Copilot
 
-L’ús de la intel·ligència artificial, en aquest projecte, ha estat una eina molt útil durant tot el procés de desenvolupament. S’ha fet servir per:
+L'ús de **Copilot** ha estat especialment valuós durant el desenvolupament d'aquest projecte. S'ha utilitzat com a assistent de programació per:
 
-- Generar fragments de codi basats en les necessitats especificades en les històries d’usuari.
-- Resoldre dubtes puntuals de sintaxi i bones pràctiques.
-- Proposar estructures lògiques per a la interfície i el comportament del sistema.
+- Generar fragments de codi a partir de comentaris o descripcions breus.
+- Autocompletar funcions i components React segons el context.
+- Proposar millores de sintaxi i bones pràctiques de JavaScript/React.
+- Detectar possibles errors o incoherències abans d’executar el codi.
 
-Aquest suport ha permès treballar de manera més eficient i dedicar més temps a l’anàlisi funcional que no pas a problemes tècnics concrets.
-
-Tot i això, també s’ha après que cal revisar totes les aportacions generades per la IA. No sempre són totalment precises o adaptades al context específic, i poden requerir ajustaments per assegurar-ne la qualitat i adequació.
+Gràcies a Copilot, el flux de treball ha estat més àgil, permetent centrar-se en la lògica del projecte més que en detalls sintàctics o tècnics. Tot i això, ha estat necessari revisar i ajustar les seves propostes per assegurar-ne la qualitat i adaptació al context concret del projecte.
 
 ---
 
