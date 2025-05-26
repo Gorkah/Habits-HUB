@@ -75,8 +75,19 @@ El segundo prompt arrojó un error, que impedia su ejecución asi que arreglamos
 
 ---
 
+## 🤖 Reflexió sobre l’ús de la IA
 
+L’ús de la intel·ligència artificial, en aquest projecte, ha estat una eina molt útil durant tot el procés de desenvolupament. S’ha fet servir per:
 
+- Generar fragments de codi basats en les necessitats especificades en les històries d’usuari.
+- Resoldre dubtes puntuals de sintaxi i bones pràctiques.
+- Proposar estructures lògiques per a la interfície i el comportament del sistema.
+
+Aquest suport ha permès treballar de manera més eficient i dedicar més temps a l’anàlisi funcional que no pas a problemes tècnics concrets.
+
+Tot i això, també s’ha après que cal revisar totes les aportacions generades per la IA. No sempre són totalment precises o adaptades al context específic, i poden requerir ajustaments per assegurar-ne la qualitat i adequació.
+
+---
 
 # Habits HUB
 
